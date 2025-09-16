@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@utility container{
+    margin-inline: auto;
+}
+
+@theme{
+    --font-pop: 'Poppins', sans-serif;
+}
