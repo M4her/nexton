@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Cart = () => {
+const Cart = ({isOpen ,closeCart }) => {
   return (
     <>
-    <section id='Cart' className=' w-full h-screen absolute top-0 left-0'>
+    <section id='Cart' className={`w-full h-screen absolute top-0 ${isOpen? "right-0" :'right-[-100%]' } duration-[.4s]`}>
 
-    <div className="w-full h-screen bg-[#0000001c]">
+    <div onClick={closeCart} className="w-full h-screen bg-[#0000001c]">
     </div>
 
-    <div className="w-[350px] h-screen bg-white absolute top-0 right-0 p-5">
+    <div className={`${isOpen?  ' scale-100' : "scale-0"} w-[350px] h-screen bg-white absolute top-0 right-0 p-5`}>
         <h2 className='text-xl font-pop font-medium text-[#000]'>Cart</h2>
 
         <div className="w-full h-[730px] overflow-y-scroll">
@@ -32,9 +32,9 @@ const Cart = () => {
           <p className='text-sm text-black font-normal font-pop'>SubTotal</p>
           <p className='text-base text-black font-medium font-pop'>$300</p>
           </div>
-          <Link className='w-full py-3 bg-[#111827] inline-block text-[#FFFFFF] text-base font-medium font-pop text-center
+          <Link onClick={closeCart} className='w-full py-3 bg-[#111827] inline-block text-[#FFFFFF] text-base font-medium font-pop text-center
            rounded-[10px] active:scale-[1.1]'
-            to={'/'}>Checkout</Link>
+            to={'/checkout'}>Checkout</Link>
 
 
 

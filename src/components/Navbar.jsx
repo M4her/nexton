@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router'
 import logo from  '../assets/images/logo.png'
 import { CiSearch } from 'react-icons/ci'
@@ -7,10 +7,17 @@ import { FiShoppingCart } from 'react-icons/fi'
 import Cart from './Cart'
 
 
+
+
+
 const Navbar = () => {
+
+
+  const [showCart , setShowCart] = useState(false)
+  
   return (
     <>
-    <nav id='Navbar' className='py-[27px]'>
+    <nav id='Navbar' className='py-[27px] relative overflow-x-clip'>
       <div className="container">
         <div className="nav_row flex justify-between items-center">
           <Link to={'/'} className='w-[119px]' >
@@ -24,7 +31,7 @@ const Navbar = () => {
           </div>
           <div className="nav_icons">
             <button className='text-2xl text-[#4B5563]'><RiUserLine/></button>
-            <button className='text-2xl text-[#4B5563] ml-[22px] relative'>
+            <button onClick={()=>setShowCart(true)} className='text-2xl text-[#4B5563] ml-[22px] relative'>
               <FiShoppingCart/>
               <div className='w-5 h-5 rounded-full bg-[#0EA5E9] text-[12px] text-[#fff]
                font-medium font-pop flex justify-center items-center absolute top-[-10px] right-[-8px]'>
@@ -35,7 +42,7 @@ const Navbar = () => {
         </div>
 
       </div>
-      <Cart/>
+      <Cart isOpen={showCart} closeCart={()=>setShowCart(false)} />
     </nav>
     </>
   )
