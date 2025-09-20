@@ -29,3 +29,54 @@
 .banner_slider .slick-dots .slick-active button{
     background: #111827;
 }
+
+/* ---------------------slider exploring */
+
+
+
+.exploring .slick-dots{
+    display: flex !important;
+    gap: 12px;
+    justify-content: center;
+  
+
+}
+
+
+.exploring .slick-dots li button{
+    width:8px;
+    height: 8px;
+    background:  #11182780;
+    border-radius: 50%;
+    font-size: 0;
+
+}
+.exploring .slick-dots .slick-active button{
+    background: #111827;
+}
+
+
+/* ----------------------Product slider */
+
+
+
+.Product .slick-dots{
+    display: flex !important;
+    gap: 12px;
+    justify-content: center;
+  
+
+}
+
+
+.Product .slick-dots li button{
+    width:8px;
+    height: 8px;
+    background:  #11182780;
+    border-radius: 50%;
+    font-size: 0;
+
+}
+.Product .slick-dots .slick-active button{
+    background: #111827;
+}
