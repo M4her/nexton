@@ -12,7 +12,7 @@ const Cart = ({isOpen ,closeCart }) => {
     <div className={`${isOpen?  ' scale-100' : "scale-0"} w-[350px] h-screen bg-white absolute top-0 right-0 p-5`}>
         <h2 className='text-xl font-pop font-medium text-[#000]'>Cart</h2>
 
-        <div className="w-full h-[730px] overflow-y-scroll">
+        <div className="w-full h-[830px] overflow-y-scroll">
 
         {/* --------------------------------- Cart products */}
         <div className='flex gap-5 items-center mt-5'>
