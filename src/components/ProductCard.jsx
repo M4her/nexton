@@ -1,7 +1,8 @@
 import React from "react";
 import { TiStarFullOutline } from "react-icons/ti";
 import { BsCartPlus } from "react-icons/bs";
-
+import { MdFavoriteBorder } from "react-icons/md";
+import { Link } from "react-router";
 
 const ProductCard = ({
   pImage,
@@ -14,18 +15,20 @@ const ProductCard = ({
 }) => {
   return (
     <>
-      <div className="w-[309px] h-[448px] relative">
-        <div className="absolute top-4 right-5">
+      <div className="w-[309px] h-[448px] relative group overflow-hidden">
+        <div className="absolute top-4 right-[-40px] flex flex-col gap-4 group-hover:right-4 duration-[.4s] ">
           <button className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
-            <BsCartPlus/>
-
+            <BsCartPlus />
           </button>
+          <Link to={'/'} className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
+            <MdFavoriteBorder/>
+          </Link>
         </div>
         <div className="w-full h-[347px] bg-[#F8FAFC] rounded-2xl overflow-hidden">
           <img src={pImage} alt="product img" />
         </div>
-        <div className="flex items-center justify-between mt-5">
-          <h2 className="text-base font-pop font-semibold text-primary">
+        <div className="flex items-center justify-between mt-5 ">
+          <h2 className="text-base font-pop font-semibold text-primary truncate w-44 ">
             {pTittle}
           </h2>
           <h2 className="text-base font-pop font-semibold text-primary">
