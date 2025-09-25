@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import CommonHead from "./CommonHead";
 import axios from "axios";
+import Slider from "react-slick";
 
 const Recommendations = () => {
   const [allProducts, setAllProducts] = useState([]);
@@ -19,9 +20,18 @@ const Recommendations = () => {
 
   console.log(allProducts);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: false,
+  };
+
   return (
     <>
-      <section className="mt-[176px]">
+      <section className="Product mt-[176px] ">
         <div className="container">
           <div className="mb-10">
             <CommonHead
@@ -29,20 +39,22 @@ const Recommendations = () => {
               content2={" Best matching products for you"}
             />
           </div>
-          <div className="flex items-center gap-5 flex-wrap">
-            {allProducts.slice(0, 4).map((item) => (
-              <ProductCard
-                key={item.id}
-                pImage={item.thumbnail}
-                pTittle={item.title}
-                pPrice={item.price}
-                pCat={item.category}
-                pDis={item.discountPercentage}
-                pRate={item.rating}
-                pStock={item.stock}
-              />
+
+          <Slider {...settings}>
+            {allProducts.map((item) => (
+              <div key={item.id}>
+                <ProductCard
+                  pImage={item.thumbnail}
+                  pTittle={item.title}
+                  pPrice={item.price}
+                  pCat={item.category}
+                  pDis={item.discountPercentage}
+                  pRate={item.rating}
+                  pStock={item.stock}
+                />
+              </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </section>
     </>

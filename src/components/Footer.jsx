@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router";
 import logo from "../assets/images/logo.png";
-import { FaFacebook } from "react-icons/fa";
+import { FaCcPaypal, FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
-
-
-
+import verSign from "../assets/images/verisign.png";
+import visa from "../assets/images/visa.png";
+import paypal from "../assets/images/paypal.png";
+import stripe from "../assets/images/stripe.png";
 
 const Footer = () => {
   return (
     <>
       <footer className=" border border-[#E5E7EB]">
         <div className="container">
-          <div className="footer_row flex justify-center gap-[205px] py-[60px] ">
+          <div className="footer_row flex justify-between py-[60px] px-[120px] ">
             <div className="logos">
               <Link to={"/"} className="w-[119px]">
                 <img src={logo} alt="logo" />
@@ -110,12 +111,27 @@ const Footer = () => {
       </footer>
       <div className="copyright ">
         <div className="container">
-          <div className="">
-            <h2>Nexton eCommerce. © 2024</h2>
-          </div>
-          <div>
+          <div className="py-8 px-[120px] flex justify-between items-center">
+            <h2 className="text-base text-[#4B5563] font-normal font-pop">
+              Nexton eCommerce. © 2024
+            </h2>
+            <div className="flex gap-4">
+              <a className=" text-[#111827]" href="#">
+                <img src={visa} alt="veriSign" />
+              </a>
+              <a className=" text-[#111827]" href="#">
+                <img src={paypal} alt="veriSign" />
+              </a>
+              <a className=" text-[#111827]" href="#">
+                <img src={stripe} alt="veriSign" />
+              </a>
 
+              <a className=" text-[#111827]" href="#">
+                <img src={verSign} alt="veriSign" />
+              </a>
+            </div>
           </div>
+          <div></div>
         </div>
       </div>
     </>
