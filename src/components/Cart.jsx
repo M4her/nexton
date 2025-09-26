@@ -6,7 +6,7 @@ const Cart = ({ isOpen, closeCart }) => {
     <>
       <section
         id="Cart"
-        className={`w-full h-screen absolute top-0 ${isOpen ? "right-0" : "right-[-100%]"} duration-[.4s]`}
+        className={`w-full h-screen absolute top-0 ${isOpen ? "right-0" : "right-[-100%]"} duration-[.4s] z-10`}
       >
         <div
           onClick={closeCart}

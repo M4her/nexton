@@ -8,11 +8,11 @@ import { TbWorld } from "react-icons/tb";
 const Services = () => {
   return (
     <>
-      <section id="Services" className="mt-[52px] ">
+      <section id="Services" className="mt-[52px]  ">
         <div className="container">
-          <div className="border border-[#E5E7EB] py-6 px-10 rounded-2xl flex justify-between ">
+          <div className="border border-[#E5E7EB] py-6 px-10 rounded-2xl flex justify-between flex-wrap ">
             {/* ---------single services 1 */}
-            <div className="w-[303px]  border-r border-[#E5E7EB] flex gap-4 items-center">
+            <div className="w-full lg:w-[303px]  border-r border-[#E5E7EB] flex gap-4 items-center">
               <LiaShippingFastSolid className="text-3xl text-primary" />
               <div>
                 <h2 className="text-lg text-primary font-semibold font-pop">

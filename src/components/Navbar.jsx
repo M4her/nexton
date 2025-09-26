@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav id="Navbar" className="py-[27px] relative overflow-x-clip z-1">
+      <nav id="Navbar" className="py-[27px] relative overflow-x-clip  hidden lg:block">
         <div className="container">
           <div className="nav_row flex justify-between items-center">
             <Link to={"/"} className="w-[119px]">
