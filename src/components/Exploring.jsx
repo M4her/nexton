@@ -26,12 +26,12 @@ const Exploring = () => {
           <Slider {...settings}>
             {/*---------- single card */}
             <div>
-              <div className="w-[418px] mt-10 p-10 border border-[#E5E7EB] rounded-2xl flex justify-between items-center ">
+              <div className="  lg:w-[418px] mt-10 p-10 border border-[#E5E7EB] rounded-2xl flex justify-between items-center ">
                 <div>
                   <h2 className="text-2xl text-primary font-semibold font-pop">
                     For Men's
                   </h2>
-                  <p className="text-sm text-[#4B5563] font-normal font-pop">
+                  <p className=" text-sm text-[#4B5563] font-normal font-pop">
                     Starting at $24
                   </p>
                 </div>

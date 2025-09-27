@@ -6,7 +6,7 @@ const Cart = ({ isOpen, closeCart }) => {
     <>
       <section
         id="Cart"
-        className={`w-full h-screen absolute top-0 ${isOpen ? "right-0" : "right-[-100%]"} duration-[.4s] z-10`}
+        className={`w-full h-screen fixed top-0 ${isOpen ? "right-0" : "right-[-100%]"} duration-[.4s] z-10`}
       >
         <div
           onClick={closeCart}
@@ -14,11 +14,11 @@ const Cart = ({ isOpen, closeCart }) => {
         ></div>
 
         <div
-          className={`${isOpen ? " scale-100" : "scale-0"} w-[350px] h-screen bg-white absolute top-0 right-0 p-5`}
+          className={`${isOpen ? " scale-100" : "scale-0"} w-full lg:w-[350px] h-screen bg-white absolute top-0 right-0 p-5`}
         >
           <h2 className="text-xl font-pop font-medium text-[#000]">Cart</h2>
 
-          <div className="w-full h-[830px] overflow-y-scroll">
+          <div className="w-full h-[85%]  overflow-y-scroll">
             {/* --------------------------------- Cart products */}
             <div className="flex gap-5 items-center mt-5">
               <div className="w-15 h-15 bg-gray-100 rounded-[5px]">
@@ -35,13 +35,13 @@ const Cart = ({ isOpen, closeCart }) => {
             </div>
           </div>
           {/* -----------------checkout button and product sum---------------- */}
-          <div className="flex justify-between">
-            <p className="text-sm text-black font-normal font-pop">SubTotal</p>
+          <div className="flex  lg:justify-between">
+            <p className="text-sm text-black font-normal font-pop mr-48 lg:mr-0">SubTotal</p>
             <p className="text-base text-black font-medium font-pop">$300</p>
           </div>
           <Link
             onClick={closeCart}
-            className="w-full py-3 bg-[#111827] inline-block text-[#FFFFFF] text-base font-medium font-pop text-center
+            className="w-[300px] lg:w-full py-3 bg-[#111827] inline-block text-[#FFFFFF] text-base font-medium font-pop text-center
            rounded-[10px] active:scale-[1.1]"
             to={"/checkout"}
           >

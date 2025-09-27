@@ -3,7 +3,7 @@
 
 
 /* ---------banner dots arrows */
-.banner_slider{
+.banner_slider {
     position: relative;
 }
 
@@ -29,6 +29,35 @@
 .banner_slider .slick-dots .slick-active button{
     background: #111827;
 }
+
+/* -----------------responsivebanner */
+.resBanner {
+    position: relative;
+}
+
+.resBanner .slick-dots{
+    display: flex !important;
+    gap: 12px;
+    position: absolute;
+    bottom: -180px;
+    left: 20px;
+    transform: translateX(-50%);
+
+}
+
+
+.resBanner .slick-dots li button{
+    width:8px;
+    height: 8px;
+    border: 1px solid #111827;
+    border-radius: 50%;
+    font-size: 0;
+
+}
+.resBanner .slick-dots .slick-active button{
+    background: #111827;
+}
+
 
 /* ---------------------slider exploring */
 
