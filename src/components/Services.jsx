@@ -10,9 +10,10 @@ const Services = () => {
     <>
       <section id="Services" className="mt-[52px]  ">
         <div className="container">
-          <div className="border border-[#E5E7EB] py-6 px-10 rounded-2xl flex justify-between flex-wrap ">
+          <h2 className="text-base font-pop font-semibold text-primary lg:hidden">Nexton® always with you</h2>
+          <div className="lg:border lg:border-[#E5E7EB] py-6 px-10 rounded-2xl flex justify-between flex-wrap ">
             {/* ---------single services 1 */}
-            <div className="w-full lg:w-[303px]  border-r border-[#E5E7EB] flex gap-4 items-center">
+            <div className="w-full lg:w-[303px]  lg:border-r border-[#E5E7EB] flex gap-4 items-center">
               <LiaShippingFastSolid className="text-3xl text-primary" />
               <div>
                 <h2 className="text-lg text-primary font-semibold font-pop">
@@ -25,7 +26,7 @@ const Services = () => {
             </div>
 
             {/* ---------single services 2 */}
-            <div className="w-[303px]  border-r border-[#E5E7EB] flex gap-4 items-center">
+            <div className="w-[303px]  lg:border-r border-[#E5E7EB] flex gap-4 items-center">
               <img className="w-6 h-6" src={servicesimage2} alt="cubes" />
               <div>
                 <h2 className="text-lg text-primary font-semibold font-pop">
@@ -38,7 +39,7 @@ const Services = () => {
             </div>
 
             {/* ---------single services 3 */}
-            <div className="w-[303px]  border-r border-[#E5E7EB] flex gap-4 items-center">
+            <div className="w-[303px]  lg:border-r border-[#E5E7EB] flex gap-4 items-center">
               <TbWorld className="text-3xl text-primary" />
               <div>
                 <h2 className="text-lg text-primary font-semibold font-pop">
