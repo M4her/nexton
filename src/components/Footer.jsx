@@ -15,7 +15,7 @@ const Footer = () => {
     <>
       <footer className=" border border-[#E5E7EB]">
         <div className="container">
-          <div className="footer_row flex justify-between py-[60px] px-[120px] ">
+          <div className="footer_row flex justify-between py-[60px] px-[120px] flex-wrap ">
             <div className="logos">
               <Link to={"/"} className="w-[119px]">
                 <img src={logo} alt="logo" />
