@@ -13,111 +13,116 @@ import stripe from "../assets/images/stripe.png";
 const Footer = () => {
   return (
     <>
-      <footer className=" border border-[#E5E7EB]">
-        <div className="container">
-          <div className="footer_row flex justify-between py-[60px] px-[120px] flex-wrap ">
+      <footer className="py-[60px] border-y border-[#E5E7EB] mt-[52px]">
+        <div className="container px-6 lg:px-0 ">
+          <div className="footer_row lg:flex justify-between">
             <div className="logos">
-              <Link to={"/"} className="w-[119px]">
+              <Link to={"/"} className="mb-[22px] block">
                 <img src={logo} alt="logo" />
               </Link>
 
-              <div className="flex items-center mt-[22px]">
-                <a className="bg-[#FFFFFF] text-[#4676ED] text-xl" href="#">
-                  <FaFacebook />
+              <div className="flex items-center gap-2 mb-[14px]">
+                <a href="#">
+                  <FaFacebook className="bg-[#FFFFFF] text-[#4676ED] text-xl" />
                 </a>
-                <h2 className="ml-7 text-base text-[#4B5563] font-pop font-normal">
+                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
                   Facebook
                 </h2>
               </div>
-              <div className="flex items-center mt-3">
-                <a className="bg-[#FFFFFF] text-[#DA0000] text-xl" href="#">
-                  <FaYoutube />
+              <div className="flex items-center gap-2 mb-[14px]">
+                <a href="#">
+                  <FaYoutube className="bg-[#FFFFFF] text-[#DA0000] text-xl" />
                 </a>
-                <h2 className="ml-7 text-base text-[#4B5563] font-pop font-normal">
-                  Facebook
+                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                  Youtube
                 </h2>
               </div>
-              <div className="flex items-center mt-3">
-                <a className="bg-[#FFFFFF] text-[#1D93D2] text-xl" href="#">
-                  <FaTelegram />
+              <div className="flex items-center gap-2 mb-[14px]">
+                <a href="#">
+                  <FaTelegram className="bg-[#FFFFFF] text-[#1D93D2] text-xl" />
                 </a>
-                <h2 className="ml-7 text-base text-[#4B5563] font-pop font-normal">
-                  Facebook
+                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                  Telegram
                 </h2>
               </div>
-              <div className="flex items-center mt-3">
-                <a className="bg-[#FFFFFF] text-[#5A99EC] text-xl" href="#">
-                  <AiFillTwitterCircle />
+              <div className="flex items-center gap-2 mb-[14px]">
+                <a href="#">
+                  <AiFillTwitterCircle className="bg-[#FFFFFF] text-[#5A99EC] text-xl" />
                 </a>
-                <h2 className="ml-7 text-base text-[#4B5563] font-pop font-normal">
-                  Facebook
+                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                  Twitter
                 </h2>
               </div>
+
+              {/* ----------logos end */}
             </div>
-            <div className="Getting started">
+              {/* ----------menu row----- */}
+            <div className="Getting started mt-[60px] lg:mt-0">
               <h2 className="text-base text-[#111827] font-semibold font-pop mb-5">
                 Getting started
               </h2>
-              <p className="text-base text-[#4B5563] font-normal font-pop ">
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block ">
                 Release Notes
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Upgrade Guide
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Browser Support
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Dark Mode
-              </p>
+              </Link>
             </div>
-            <div className="Explore">
+            <div className="Explore mt-[60px]  lg:mt-0">
               <h2 className="text-base text-[#111827] font-semibold font-pop mb-5">
                 {" "}
                 Explore
               </h2>
-              <p className="text-base text-[#4B5563] font-normal font-pop">
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block">
                 Prototyping
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Design systems
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Pricing
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Security
-              </p>
+              </Link>
             </div>
-            <div className="Community">
+            <div className="Community mt-[60px] lg:mt-0">
               <h2 className="text-base text-[#111827] font-semibold font-pop mb-5">
                 Community
               </h2>
-              <p className="text-base text-[#4B5563] font-normal font-pop">
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block">
                 Discussion Forums
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Code of Conduct
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 Contributing
-              </p>
-              <p className="text-base text-[#4B5563] font-normal font-pop mt-4">
+              </Link>
+              <Link  to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
                 API Reference
-              </p>
+              </Link>
             </div>
+
+            
           </div>
         </div>
       </footer>
       <div className="copyright ">
         <div className="container">
-          <div className="py-8 px-[120px] flex justify-between items-center">
-            <h2 className="text-base text-[#4B5563] font-normal font-pop">
+          <div className="px-[82px] pt-5 pb-[55px] lg:py-8 lg:px-[120px] lg:flex justify-between items-center ">
+            <h2 className=" text-sm lg:text-base text-[#4B5563] font-normal font-pop mb-3">
               Nexton eCommerce. © 2024
             </h2>
-            <div className="flex gap-4">
-              <a className=" text-[#111827]" href="#">
-                <img src={visa} alt="veriSign" />
+            <div className="flex gap-[4px] items-center">
+              <a className=" text-[#111827] " href="#">
+                <img  src={visa} alt="veriSign" />
               </a>
               <a className=" text-[#111827]" href="#">
                 <img src={paypal} alt="veriSign" />

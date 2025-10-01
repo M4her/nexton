@@ -8,24 +8,52 @@ const Sellers = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://dummyjson.com/products").then((res) => {
+    axios.get("https://dummyjson.com/products")
+    .then((res) => {
       setAllProducts(res.data.products);
     });
   }, []);
 
-  const settings = {
+ const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: false,
+     responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 757,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  
   };
 
   return (
     <>
       <section className="Product mt-[177px]">
-        <div className="container">
+        <div className="container px-6 lg:px-0">
           <div className='mb-10'>
 
           <CommonHead 

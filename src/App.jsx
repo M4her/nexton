@@ -4,6 +4,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import LayoutsOne from './layouts/LayoutsOne'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
+import ProductDetails from './pages/ProductDetails'
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
     <Route   path='/' element={<LayoutsOne/>}>
      <Route index  element={<Home/>}/>
      <Route path='/checkout' element={<Checkout/>}/>
+     <Route path='/productDetails' element={<ProductDetails/>}/>
 
 
 
