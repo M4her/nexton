@@ -21,56 +21,68 @@ const Footer = () => {
                 <img src={logo} alt="logo" />
               </Link>
 
-              <div className="flex items-center gap-2 mb-[14px]">
-                <a href="#">
+              <div>
+                <a className="flex items-center gap-2 mb-[14px]" href="#">
                   <FaFacebook className="bg-[#FFFFFF] text-[#4676ED] text-xl" />
+                  <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                    Facebook
+                  </h2>
                 </a>
-                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
-                  Facebook
-                </h2>
               </div>
-              <div className="flex items-center gap-2 mb-[14px]">
-                <a href="#">
+              <div>
+                <a className="flex items-center gap-2 mb-[14px]" href="#">
                   <FaYoutube className="bg-[#FFFFFF] text-[#DA0000] text-xl" />
+                  <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                    Youtube
+                  </h2>
                 </a>
-                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
-                  Youtube
-                </h2>
               </div>
-              <div className="flex items-center gap-2 mb-[14px]">
-                <a href="#">
+              <div>
+                <a className="flex items-center gap-2 mb-[14px]" href="#">
                   <FaTelegram className="bg-[#FFFFFF] text-[#1D93D2] text-xl" />
+                  <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                    Telegram
+                  </h2>
                 </a>
-                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
-                  Telegram
-                </h2>
               </div>
-              <div className="flex items-center gap-2 mb-[14px]">
-                <a href="#">
+              <div className="">
+                <a className="flex items-center gap-2 mb-[14px]" href="#">
                   <AiFillTwitterCircle className="bg-[#FFFFFF] text-[#5A99EC] text-xl" />
+                  <h2 className=" text-base text-[#4B5563] font-pop font-normal">
+                    Twitter
+                  </h2>
                 </a>
-                <h2 className=" text-base text-[#4B5563] font-pop font-normal">
-                  Twitter
-                </h2>
               </div>
 
               {/* ----------logos end */}
             </div>
-              {/* ----------menu row----- */}
+            {/* ----------menu row----- */}
             <div className="Getting started mt-[60px] lg:mt-0">
               <h2 className="text-base text-[#111827] font-semibold font-pop mb-5">
                 Getting started
               </h2>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block ">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop block "
+              >
                 Release Notes
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Upgrade Guide
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Browser Support
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Dark Mode
               </Link>
             </div>
@@ -79,16 +91,28 @@ const Footer = () => {
                 {" "}
                 Explore
               </h2>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop block"
+              >
                 Prototyping
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Design systems
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Pricing
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Security
               </Link>
             </div>
@@ -96,21 +120,31 @@ const Footer = () => {
               <h2 className="text-base text-[#111827] font-semibold font-pop mb-5">
                 Community
               </h2>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop block"
+              >
                 Discussion Forums
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Code of Conduct
               </Link>
-              <Link to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 Contributing
               </Link>
-              <Link  to={'/'} className="text-base text-[#4B5563] font-normal font-pop mt-4 block">
+              <Link
+                to={"/"}
+                className="text-base text-[#4B5563] font-normal font-pop mt-4 block"
+              >
                 API Reference
               </Link>
             </div>
-
-            
           </div>
         </div>
       </footer>
@@ -122,7 +156,7 @@ const Footer = () => {
             </h2>
             <div className="flex gap-[4px] items-center">
               <a className=" text-[#111827] " href="#">
-                <img  src={visa} alt="veriSign" />
+                <img src={visa} alt="veriSign" />
               </a>
               <a className=" text-[#111827]" href="#">
                 <img src={paypal} alt="veriSign" />
