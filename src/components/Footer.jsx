@@ -13,7 +13,7 @@ import stripe from "../assets/images/stripe.png";
 const Footer = () => {
   return (
     <>
-      <footer className="py-[60px] border-y border-[#E5E7EB] mt-[52px]">
+      <footer className="py-[60px] border-y border-[#E5E7EB] ">
         <div className="container px-6 lg:px-0 ">
           <div className="footer_row lg:flex justify-between">
             <div className="logos">

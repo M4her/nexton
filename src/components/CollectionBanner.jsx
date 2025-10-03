@@ -5,7 +5,7 @@ import bannerContainer from "../assets/images/banner-container.png";
 const CollectionBanner = () => {
   return (
     <>
-      <section id="colletionBanner" className="mt-[140px] mb-[52px]">
+      <section id="colletionBanner" className="mt-[140px] pb-[52px]">
         <div className="container">
           <div>
             <Link to="#">

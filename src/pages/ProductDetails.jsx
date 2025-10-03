@@ -1,82 +1,197 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoIosRemove } from "react-icons/io";
 import { IoAdd } from "react-icons/io5";
 import { IoBagHandleOutline } from "react-icons/io5";
+import { WiStars } from "react-icons/wi";
+import ProductCard from "../components/ProductCard";
+import CommonHead from "../components/CommonHead";
+import axios from "axios";
+import Slider from "react-slick";
 
 const ProductDetails = () => {
+  const [allProducts, setAllProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        setAllProducts(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(allProducts);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 757,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       <section id="productDetails " className="mt-10 px-6 lg:px-0 ">
         <div className="container ">
-          <div className="product_row flex justify-between">
-            <div className="product_images flex gap-6 border-b border-[#E5E7EB] pb-[64px] ">
-              <div className="flex flex-col gap-4">
-                <button className="w-[140px] h-[157px] rounded-[16px] overflow-hidden bg-[#F8FAFC]"></button>
-                <button className="w-[140px] h-[157px] rounded-[16px] overflow-hidden bg-[#F8FAFC]"></button>
-                <button className="w-[140px] h-[157px] rounded-[16px] overflow-hidden bg-[#F8FAFC]"></button>
-                <button className="w-[140px] h-[157px] rounded-[16px] overflow-hidden bg-[#F8FAFC]"></button>
+          <div className="product_row flex justify-between flex-wrap">
+            <div className="product_images flex flex-wrap gap-[11px] lg:gap-6 lg:border-b lg:border-[#E5E7EB] pb-[64px] ">
+              <div className="flex flex-col gap-4 ">
+                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block"></button>
+                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
+                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
+                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
               </div>
-              <div className="w-[640px] h-[678px] bg-[#F8FAFC] rounded-[16px]"></div>
+              <div className="w-[312px] lg:w-[640px] h-[331px] lg:h-[678px] bg-[#F8FAFC] rounded-[16px] pb-4"></div>
+              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
+              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden "></button>
+              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
+              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
             </div>
+
             {/* ----------options------ */}
-            <div className="product_option w-[460px] p-[33px] border border-[#E5E7EB] h-fit rounded-2xl">
+            <div className="product_option w-[312px] lg:w-[460px] lg:p-[33px] lg:border lg:border-[#E5E7EB] h-fit rounded-2xl">
+              <h1 className="text-2xl font-semibold font-pop text-primary w-[312px] lg:hidden">
+                Black Automatic Watch
+              </h1>
+              <h2 className="text-xl font-semibold font-pop text-primary mt-3 lg:hidden">
+                $68.00
+              </h2>
+              <p className="text-xs font-medium font-pop text-#[4B5563] line-through lg:hidden">
+                $79.00
+              </p>
+
               <div className="flex justify-between">
-                <div className="flex items-center gap-1 h-fit">
-                  <FaStar className="text-[#FBBF24]" />
-                  <p className="text-base font-semibold font-pop text-[#4B5563]">
+                <div className="flex items-center  gap-1 h-fit">
+                  <FaStar className="text-[#FBBF24] hidden lg:block " />
+                  <FaStar className="text-[#FBBF24] mt-[26px] lg:hidden " />
+
+                  <p className="text-base font-semibold font-pop text-[#4B5563] hidden lg:block">
                     4.9 . 142 reviews
+                  </p>
+                  <p className="text-base font-semibold font-pop text-[#4B5563] mt-[26px]  lg:hidden">
+                    4.9 (98)
                   </p>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold font-pop text-primary">
+                  <h2 className="text-2xl font-semibold font-pop text-primary hidden lg:block">
                     $169.99
                   </h2>
-                  <h3 className="text-sm font-medium font-pop text-[#4B5563] line-through">
+                  <h3 className="text-sm font-medium font-pop text-[#4B5563] line-through hidden lg:block ml-[39px] ">
                     $199.99
                   </h3>
                 </div>
               </div>
               {/* ------------product size */}
-              <h2 className="text-base font-semibold font-pop text-primary">
+              <h2 className="text-sm lg:text-base font-semibold font-pop text-primary mt-8">
                 Size: S
               </h2>
-              <div className="flex gap-2 mt-3 mb-8">
-                <button className="w-[72px] h-[44px] border border-[#E5E7EB] rounded-xl">
+              <div className="flex flex-wrap gap-2 mt-3 mb-8">
+                <button
+                  className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
+                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]">
                   S
                 </button>
-                <button className="w-[72px] h-[44px] border border-[#E5E7EB] rounded-xl">
+                <button
+                  className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
+                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]"
+                >
                   M
                 </button>
-                <button className="w-[72px] h-[44px] border border-[#E5E7EB] rounded-xl">
+                <button
+                  className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
+                tlg:ext-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]"
+                >
                   L
                 </button>
-                <button className="w-[72px] h-[44px] border border-[#E5E7EB] rounded-xl">
+                <button
+                  className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
+                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]"
+                >
                   XL
                 </button>
-                <button className="w-[72px] h-[44px] border border-[#E5E7EB] rounded-xl">
+                <button
+                  className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
+                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]"
+                >
                   2XL
                 </button>
               </div>
               {/* ------add to cart */}
-              <div className="flex justify-between">
+              <div className="flex justify-between mb-5 lg:mb-8">
                 {/* buttons part */}
-                <div className="py-2 px-3 rounded-[9999px] bg-[#E5E7EB] flex gap-4 items-center">
-                  <button className="w-6 h-6 border border-[#E5E7EB] bg-[#fff] rounded-full flex justify-center items-center">
+                <div className=" w-[110px] h-[40px] py-2 px-3 rounded-[9999px] bg-[#E5E7EB] flex gap-3 lg:gap-4 items-center mt-2">
+                  <button className="w-5 h-5 lg:w-6 lg:h-6 border border-[#E5E7EB] bg-[#fff] rounded-full flex justify-center items-center">
                     <IoIosRemove />
                   </button>
-                  <h2 className="text-base font-pop font-medium text-primary">
+                  <h2 className="text-sm lg:text-base font-pop font-medium text-primary">
                     1
                   </h2>
-                  <button className="w-6 h-6 border border-[#E5E7EB] bg-[#fff] rounded-full flex justify-center items-center">
+                  <button className="w-5 h-5 lg:w-6 lg:h-6 border border-[#E5E7EB] bg-[#fff] rounded-full flex justify-center items-center">
                     <IoAdd />
                   </button>
                 </div>
                 {/* ------add to cart button */}
-                <div className="py-4 px-8 bg-[#111827] text-base font-medium font-pop text-[#fff] rounded-[9999px] flex items-center gap-2">
+                <div className="px-6 py-[10px] lg:py-4 lg:px-8 bg-[#111827] text-base font-medium font-pop text-[#fff] rounded-[9999px]
+                 flex items-center gap-2 ">
                   <IoBagHandleOutline />
                   Add to cart
                 </div>
+              </div>
+              {/*---------- sum total */}
+              <div className="flex justify-between items-center ">
+                <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
+                  $169.99 x 1
+                </p>
+                <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
+                  $169.99
+                </p>
+              </div>
+              <div className="flex justify-between items-center mt-[10px] mb-4">
+                <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
+                  Tax estimate
+                </p>
+                <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
+                  $0
+                </p>
+              </div>
+              <div className="border border-[#E5E7EB] hidden lg:block"></div>
+              <div className="flex justify-between items-center mt-4">
+                <h2 className="text-base font-pop font-semibold text-primary hidden lg:block">
+                  Total
+                </h2>
+                <h2 className="text-base font-pop font-semibold text-primary hidden lg:block">
+                  $169.99
+                </h2>
               </div>
             </div>
           </div>
@@ -97,6 +212,74 @@ const ProductDetails = () => {
             <h2 className="text-xl lg:text-2xl font-semibold font-pop text-primary mt-10 lg:mt-[60px]">
               Fabric + Care
             </h2>
+            <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563]">
+              Material: Soft wool blend
+            </p>
+            <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563]">
+              Color: Various
+            </p>
+            <h2 className="text-xl lg:text-2xl font-semibold font-pop text-primary mt-10 lg:mt-[60px]">
+              Sale performance
+            </h2>
+            <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563]">
+              Sales: 0
+            </p>
+            <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563]">
+              Review Count: -
+            </p>
+            <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563]">
+              Review Average: -
+            </p>
+            {/* -----------keywords */}
+            <h2 className="text-xl lg:text-2xl font-semibold font-pop text-primary mt-10 lg:mt-[60px] mb-2">
+              Keywords
+            </h2>
+            <div className="flex gap-2 flex-wrap">
+              <div className="px-[14px] py-2 border border-[#E5E7EB] bg-[#FFFFFF] rounded-2xl text-xs font-normal font-pop text-[#4B5563] flex items-center ">
+                <WiStars className="text-xl" />
+                men's fashion
+              </div>
+              <div className="px-[14px] py-2 border border-[#E5E7EB] bg-[#FFFFFF] rounded-2xl text-xs font-normal font-pop text-[#4B5563] flex items-center ">
+                <WiStars className="text-xl" />
+                winter hat
+              </div>
+              <div className="px-[14px] py-2 border border-[#E5E7EB] bg-[#FFFFFF] rounded-2xl text-xs font-normal font-pop text-[#4B5563] flex items-center ">
+                <WiStars className="text-xl" />
+                colorful accessory
+              </div>
+              <div className="px-[14px] py-2 border border-[#E5E7EB] bg-[#FFFFFF] rounded-2xl text-xs font-normal font-pop text-[#4B5563] flex items-center ">
+                <WiStars className="text-xl" />
+                warm headwear
+              </div>
+            </div>
+          </div>
+          {/* ----------recommended products */}
+          <div className="Product pt-[96px] pb-[72px] overflow-hidden">
+            <div className="container p-6 lg:p-0">
+              <div className="mb-10 hidden lg:block">
+                <CommonHead content1={"Recommended products"} />
+              </div>
+              <div className="mb-10 lg:hidden">
+                <CommonHead content1={"Recommendations"} />
+              </div>
+              
+
+              <Slider {...settings}>
+                {allProducts.map((item) => (
+                  <div key={item.id}>
+                    <ProductCard
+                      pImage={item.thumbnail}
+                      pTittle={item.title}
+                      pPrice={item.price}
+                      pCat={item.category}
+                      pDis={item.discountPercentage}
+                      pRate={item.rating}
+                      pStock={item.stock}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </section>

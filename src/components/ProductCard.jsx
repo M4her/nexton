@@ -22,7 +22,7 @@ const ProductCard = ({
             <BsCartPlus />
           </button>
           <Link
-            to={"/"}
+            to={"/productdetails"}
             className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]"
           >
             <TbListDetails />
