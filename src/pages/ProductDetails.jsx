@@ -8,8 +8,11 @@ import ProductCard from "../components/ProductCard";
 import CommonHead from "../components/CommonHead";
 import axios from "axios";
 import Slider from "react-slick";
+import { useParams } from "react-router";
+import { LuDot } from "react-icons/lu";
 
 const ProductDetails = () => {
+  // ----------------slider
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const ProductDetails = () => {
       });
   }, []);
 
-  console.log(allProducts);
+  // console.log(allProducts);
 
   const settings = {
     dots: true,
@@ -59,26 +62,74 @@ const ProductDetails = () => {
       },
     ],
   };
+  // ------------------slider
+  // -----------------Api single product
+  const [singleProduct, setSingleProduct] = useState("");
+  const paramsData = useParams();
+  const [images, setImages] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`https://dummyjson.com/products/${paramsData.pId}`)
+      .then((res) => {
+        (setSingleProduct(res.data), setImages(res.data.images?.[0]));
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(singleProduct);
   return (
     <>
       <section id="productDetails " className="mt-10 px-6 lg:px-0 ">
         <div className="container ">
           <div className="product_row flex justify-between flex-wrap">
-            <div className="product_images flex flex-wrap gap-[11px] lg:gap-6 lg:border-b lg:border-[#E5E7EB] pb-[64px] ">
-              <div className="flex flex-col gap-4 ">
-                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block"></button>
-                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
-                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
-                <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block "></button>
+            {/* -------sekeleton code */}
+            {singleProduct ? (
+              <div className="product_images flex flex-wrap gap-[11px] lg:gap-6 lg:border-b lg:border-[#E5E7EB] pb-[64px] ">
+                <div className="flex flex-col gap-4 ">
+                  {singleProduct.images?.map((item, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setImages(item)}
+                      className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] hidden lg:block"
+                    >
+                      <img src={item} alt="productImages" />
+                    </button>
+                  ))}
+                </div>
+                <div className="w-[312px] lg:w-[640px] h-[331px] lg:h-[678px] bg-[#F8FAFC] rounded-[16px] pb-4">
+                  <img src={images} alt="productImages" />
+                </div>
+                {/* ---------resbuttons */}
+                <div className="flex  gap-4 ">
+                  {singleProduct.images?.map((item, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setImages(item)}
+                      className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC]  lg:hidden"
+                    >
+                      <img src={item} alt="productImages" />
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div className="w-[312px] lg:w-[640px] h-[331px] lg:h-[678px] bg-[#F8FAFC] rounded-[16px] pb-4"></div>
-              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
-              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden "></button>
-              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
-              <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-[#F8FAFC] lg:hidden"></button>
-            </div>
+            ) : (
+              <div className="bg-white product_images flex flex-wrap gap-[11px] lg:gap-6 lg:border-b lg:border-gray-300 pb-[64px]">
+                <div className="flex flex-col gap-4 ">
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden hidden lg:block bg-gray-200 animate-pulse"></button>
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden hidden lg:block bg-gray-200 animate-pulse"></button>
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden hidden lg:block bg-gray-200 animate-pulse"></button>
+                </div>
+                <div className="w-[312px] lg:w-[640px] h-[331px] lg:h-[678px] bg-gray-200 rounded-[16px] pb-4 animate-pulse"></div>
+                <div className="flex gap-4 lg:hidden">
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-gray-200 animate-pulse"></button>
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-gray-200 animate-pulse"></button>
+                  <button className="w-[70px] h-[79px] lg:w-[140px] lg:h-[158px] rounded-[16px] overflow-hidden bg-gray-200 animate-pulse"></button>
+                </div>
+              </div>
+            )}
 
-            {/* ----------options------ */}
+            {/* /* ----------options------ */}
             <div className="product_option w-[312px] lg:w-[460px] lg:p-[33px] lg:border lg:border-[#E5E7EB] h-fit rounded-2xl">
               <h1 className="text-2xl font-semibold font-pop text-primary w-[312px] lg:hidden">
                 Black Automatic Watch
@@ -91,23 +142,31 @@ const ProductDetails = () => {
               </p>
 
               <div className="flex justify-between">
-                <div className="flex items-center  gap-1 h-fit">
+                <div className="flex items-center gap-1 h-fit">
                   <FaStar className="text-[#FBBF24] hidden lg:block " />
                   <FaStar className="text-[#FBBF24] mt-[26px] lg:hidden " />
 
-                  <p className="text-base font-semibold font-pop text-[#4B5563] hidden lg:block">
-                    4.9 . 142 reviews
+                  
+                  <p className="text-base font-semibold font-pop text-[#4B5563] hidden lg:flex items-center">
+                    {singleProduct.rating}
+                    <LuDot className="mx-1" />
+                    {singleProduct.reviews?.length} reviews
                   </p>
-                  <p className="text-base font-semibold font-pop text-[#4B5563] mt-[26px]  lg:hidden">
-                    4.9 (98)
+                  <p className="text-base font-semibold font-pop text-[#4B5563] mt-[26px]  lg:hidden flex items-center">
+                    4.9
+                    <LuDot className="mx-1" />
+                    (98)
                   </p>
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold font-pop text-primary hidden lg:block">
-                    $169.99
+                    $
+                    {singleProduct.price -
+                      (singleProduct.price * singleProduct.discountPercentage) /
+                        100}
                   </h2>
                   <h3 className="text-sm font-medium font-pop text-[#4B5563] line-through hidden lg:block ml-[39px] ">
-                    $199.99
+                    ${singleProduct.price}
                   </h3>
                 </div>
               </div>
@@ -118,7 +177,8 @@ const ProductDetails = () => {
               <div className="flex flex-wrap gap-2 mt-3 mb-8">
                 <button
                   className="w-[68px] h-[36px] lg:w-[72px] lg:h-[44px] border border-[#E5E7EB] rounded-xl text-xs
-                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]">
+                 lg:text-base font-semibold font-pop text-[#4B5563] hover:bg-[#0EA5E9] hover:text-[#FFFFFF]"
+                >
                   S
                 </button>
                 <button
@@ -161,8 +221,10 @@ const ProductDetails = () => {
                   </button>
                 </div>
                 {/* ------add to cart button */}
-                <div className="px-6 py-[10px] lg:py-4 lg:px-8 bg-[#111827] text-base font-medium font-pop text-[#fff] rounded-[9999px]
-                 flex items-center gap-2 ">
+                <div
+                  className="px-6 py-[10px] lg:py-4 lg:px-8 bg-[#111827] text-base font-medium font-pop text-[#fff] rounded-[9999px]
+                 flex items-center gap-2 "
+                >
                   <IoBagHandleOutline />
                   Add to cart
                 </div>
@@ -170,10 +232,14 @@ const ProductDetails = () => {
               {/*---------- sum total */}
               <div className="flex justify-between items-center ">
                 <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
-                  $169.99 x 1
+                  $
+                  {singleProduct.price -
+                    (singleProduct.price * singleProduct.discountPercentage) / 100} x 1
                 </p>
                 <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
-                  $169.99
+                  $
+                  {singleProduct.price -
+                    (singleProduct.price * singleProduct.discountPercentage) / 100}
                 </p>
               </div>
               <div className="flex justify-between items-center mt-[10px] mb-4">
@@ -190,7 +256,10 @@ const ProductDetails = () => {
                   Total
                 </h2>
                 <h2 className="text-base font-pop font-semibold text-primary hidden lg:block">
-                  $169.99
+                  $
+                  {singleProduct.price -
+                    (singleProduct.price * singleProduct.discountPercentage) /
+                      100}
                 </h2>
               </div>
             </div>
@@ -262,7 +331,6 @@ const ProductDetails = () => {
               <div className="mb-10 lg:hidden">
                 <CommonHead content1={"Recommendations"} />
               </div>
-              
 
               <Slider {...settings}>
                 {allProducts.map((item) => (

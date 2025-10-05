@@ -3,10 +3,10 @@ import ProductCard from "./ProductCard";
 import CommonHead from "./CommonHead";
 import axios from "axios";
 import Slider from "react-slick";
+import { useNavigate } from "react-router";
 
 const Recommendations = () => {
   const [allProducts, setAllProducts] = useState([]);
-
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products")
@@ -18,42 +18,45 @@ const Recommendations = () => {
       });
   }, []);
 
-  console.log(allProducts);
-
-   const settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
     arrows: false,
-     responsive: [
+    responsive: [
       {
         breakpoint: 1023,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 757,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 639,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
-      }
-    ]
-  
+        },
+      },
+    ],
+  };
+  // -------------productDetails handler--------
+  const navigate = useNavigate();
+
+  const handleDetails = (productID) => {
+    navigate(`/productDetails/${productID}`);
   };
 
   return (
@@ -78,6 +81,7 @@ const Recommendations = () => {
                   pDis={item.discountPercentage}
                   pRate={item.rating}
                   pStock={item.stock}
+                  detailsClick={() => handleDetails(item.id)}
                 />
               </div>
             ))}

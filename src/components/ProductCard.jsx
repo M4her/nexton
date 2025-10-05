@@ -13,6 +13,7 @@ const ProductCard = ({
   pDis,
   pRate,
   pStock,
+  detailsClick,
 }) => {
   return (
     <>
@@ -21,12 +22,12 @@ const ProductCard = ({
           <button className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
             <BsCartPlus />
           </button>
-          <Link
-            to={"/productdetails"}
+          <button
+            onClick={detailsClick}
             className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]"
           >
             <TbListDetails />
-          </Link>
+          </button>
         </div>
         <div className="w-full h-[347px] bg-[#F8FAFC] rounded-2xl overflow-hidden">
           <img src={pImage} alt="product img" />
@@ -40,8 +41,12 @@ const ProductCard = ({
           </h2>
         </div>
         <div className="flex items-center justify-between mb-[15px]">
-          <p className="text-xs lg:text-sm font-pop font-normal text-primary">{pCat}</p>
-          <p className="text-xs lg:text-sm font-pop font-normal text-primary ">{pDis}%</p>
+          <p className="text-xs lg:text-sm font-pop font-normal text-primary">
+            {pCat}
+          </p>
+          <p className="text-xs lg:text-sm font-pop font-normal text-primary ">
+            {pDis}%
+          </p>
         </div>
         <div className="flex items-center gap-1">
           <TiStarFullOutline className="text-[#FBBF24] text-xl" />
@@ -50,7 +55,6 @@ const ProductCard = ({
           </p>
         </div>
       </div>
-
     </>
   );
 };
