@@ -12,22 +12,10 @@ import { useParams } from "react-router";
 import { LuDot } from "react-icons/lu";
 
 const ProductDetails = () => {
+  
+  
+  
   // ----------------slider
-  const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://dummyjson.com/products")
-      .then((res) => {
-        setAllProducts(res.data.products);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  // console.log(allProducts);
-
   const settings = {
     dots: true,
     infinite: true,
@@ -63,21 +51,33 @@ const ProductDetails = () => {
     ],
   };
   // ------------------slider
-  // -----------------Api single product
+  // -----------------Api product
   const [singleProduct, setSingleProduct] = useState("");
-  const paramsData = useParams();
   const [images, setImages] = useState("");
-
+  const paramsData = useParams();
+  const [allProducts, setAllProducts] = useState([]);
+  
   useEffect(() => {
+    // -------------single product
     axios
-      .get(`https://dummyjson.com/products/${paramsData.pId}`)
-      .then((res) => {
-        (setSingleProduct(res.data), setImages(res.data.images?.[0]));
-      })
-      .catch((err) => console.log(err));
+    .get(`https://dummyjson.com/products/${paramsData.pId}`)
+    .then((res) => {
+      (setSingleProduct(res.data), setImages(res.data.images?.[0]));
+    })
+    .catch((err) => console.log(err));
+    // --------all products
+    axios
+    .get("https://dummyjson.com/products")
+    .then((res) => {
+      setAllProducts(res.data.products);
+    })
+    .catch((err) => console.log(err));
   }, []);
-
-  console.log(singleProduct);
+  const categoryProducts = allProducts.filter(
+    (item) => item?.category == singleProduct?.category
+  );
+  console.log(categoryProducts);
+  
   return (
     <>
       <section id="productDetails " className="mt-10 px-6 lg:px-0 ">
@@ -146,7 +146,6 @@ const ProductDetails = () => {
                   <FaStar className="text-[#FBBF24] hidden lg:block " />
                   <FaStar className="text-[#FBBF24] mt-[26px] lg:hidden " />
 
-                  
                   <p className="text-base font-semibold font-pop text-[#4B5563] hidden lg:flex items-center">
                     {singleProduct.rating}
                     <LuDot className="mx-1" />
@@ -159,7 +158,7 @@ const ProductDetails = () => {
                   </p>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold font-pop text-primary hidden lg:block">
+                  <h2 className="text-2xl font-semibold font-pop text-primary hidden lg:block truncate w-25">
                     $
                     {singleProduct.price -
                       (singleProduct.price * singleProduct.discountPercentage) /
@@ -234,12 +233,15 @@ const ProductDetails = () => {
                 <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
                   $
                   {singleProduct.price -
-                    (singleProduct.price * singleProduct.discountPercentage) / 100} x 1
+                    (singleProduct.price * singleProduct.discountPercentage) /
+                      100}{" "}
+                  x 1
                 </p>
                 <p className="text-base font-normal font-pop text-[#4B5563] hidden lg:block">
                   $
                   {singleProduct.price -
-                    (singleProduct.price * singleProduct.discountPercentage) / 100}
+                    (singleProduct.price * singleProduct.discountPercentage) /
+                      100}
                 </p>
               </div>
               <div className="flex justify-between items-center mt-[10px] mb-4">
@@ -322,7 +324,7 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
-          {/* ----------recommended products */}
+          {/* ----------Recommendations */}
           <div className="Product pt-[96px] pb-[72px] overflow-hidden">
             <div className="container p-6 lg:p-0">
               <div className="mb-10 hidden lg:block">
@@ -333,7 +335,7 @@ const ProductDetails = () => {
               </div>
 
               <Slider {...settings}>
-                {allProducts.map((item) => (
+                {categoryProducts.map((item) => (
                   <div key={item.id}>
                     <ProductCard
                       pImage={item.thumbnail}
