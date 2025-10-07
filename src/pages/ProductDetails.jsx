@@ -12,9 +12,6 @@ import { useParams } from "react-router";
 import { LuDot } from "react-icons/lu";
 
 const ProductDetails = () => {
-  
-  
-  
   // ----------------slider
   const settings = {
     dots: true,
@@ -50,34 +47,33 @@ const ProductDetails = () => {
       },
     ],
   };
-  // ------------------slider
-  // -----------------Api product
+  // -----------------Api npproduct
   const [singleProduct, setSingleProduct] = useState("");
   const [images, setImages] = useState("");
   const paramsData = useParams();
   const [allProducts, setAllProducts] = useState([]);
-  
+
   useEffect(() => {
     // -------------single product
     axios
-    .get(`https://dummyjson.com/products/${paramsData.pId}`)
-    .then((res) => {
-      (setSingleProduct(res.data), setImages(res.data.images?.[0]));
-    })
-    .catch((err) => console.log(err));
+      .get(`https://dummyjson.com/products/${paramsData.pId}`)
+      .then((res) => {
+        (setSingleProduct(res.data), setImages(res.data.images?.[0]));
+      })
+      .catch((err) => console.log(err));
     // --------all products
     axios
-    .get("https://dummyjson.com/products")
-    .then((res) => {
-      setAllProducts(res.data.products);
-    })
-    .catch((err) => console.log(err));
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        setAllProducts(res.data.products);
+      })
+      .catch((err) => console.log(err));
   }, []);
   const categoryProducts = allProducts.filter(
     (item) => item?.category == singleProduct?.category
   );
   console.log(categoryProducts);
-  
+
   return (
     <>
       <section id="productDetails " className="mt-10 px-6 lg:px-0 ">

@@ -15,11 +15,12 @@ const ProductCard = ({
   pStock,
   detailsClick,
 }) => {
+  
   return (
     <>
       <div className="w-[312px] lg:w-[309px] h-[448px] relative group overflow-hidden">
         <div className="absolute top-4 right-[-40px] flex flex-col gap-5 group-hover:right-4 duration-[.4s] ">
-          <button className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
+          <button   className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
             <BsCartPlus />
           </button>
           <button
