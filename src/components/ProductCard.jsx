@@ -29,6 +29,7 @@ const ProductCard = ({
           >
             <TbListDetails />
           </button>
+          
         </div>
         <div className="w-full h-[347px] bg-[#F8FAFC] rounded-2xl overflow-hidden">
           <img src={pImage} alt="product img" />

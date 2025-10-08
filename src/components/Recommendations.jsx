@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import CommonHead from "./CommonHead";
 import axios from "axios";
 import Slider from "react-slick";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 
 const Recommendations = () => {
   const [allProducts, setAllProducts] = useState([]);

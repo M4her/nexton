@@ -8,10 +8,17 @@ import ProductCard from "../components/ProductCard";
 import CommonHead from "../components/CommonHead";
 import axios from "axios";
 import Slider from "react-slick";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { LuDot } from "react-icons/lu";
 
 const ProductDetails = () => {
+  // -------------productDetails handler--------
+  const navigate = useNavigate();
+
+  const handleDetails = (productID) => {
+    navigate(`/productDetails/${productID}`);
+  };
+
   // ----------------slider
   const settings = {
     dots: true,
@@ -341,6 +348,7 @@ const ProductDetails = () => {
                       pDis={item.discountPercentage}
                       pRate={item.rating}
                       pStock={item.stock}
+                      detailsClick={() => handleDetails(item.id)}
                     />
                   </div>
                 ))}
