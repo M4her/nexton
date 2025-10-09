@@ -17,6 +17,8 @@ const ProductDetails = () => {
 
   const handleDetails = (productID) => {
     navigate(`/productDetails/${productID}`);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // ----------------slider
@@ -274,15 +276,15 @@ const ProductDetails = () => {
             <h2 className="text-4xl font-semibold font-pop text-primary hidden lg:block">
               Black Automatic Watch
             </h2>
-            <h2 className="text-xl font-semibold font-pop text-primary lg:hidden">
-              About this product
-            </h2>
             <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563] w-[312px] lg:w-[735px] mt-1">
               The St. Louis Meramec Canoe Company was founded by Alfred Wickett
               in 1922. Wickett had previously worked for the Old Town Canoe Co
               from 1900 to 1914. Manufacturing of the classic wooden canoes in
               Valley Park, Missouri ceased in 1978.
             </p>
+            <h2 className="text-xl font-semibold font-pop text-primary lg:hidden">
+              About this product
+            </h2>
             <h2 className="text-xl lg:text-2xl font-semibold font-pop text-primary mt-10 lg:mt-[60px]">
               Fabric + Care
             </h2>
@@ -348,7 +350,11 @@ const ProductDetails = () => {
                       pDis={item.discountPercentage}
                       pRate={item.rating}
                       pStock={item.stock}
-                      detailsClick={() => handleDetails(item.id)}
+                      detailsClick={() => (
+                        handleDetails(item.id),
+                        setSingleProduct(item),
+                        setImages(item.images?.[0])
+                      )}
                     />
                   </div>
                 ))}
