@@ -15,12 +15,11 @@ const ProductCard = ({
   pStock,
   detailsClick,
 }) => {
-  
   return (
     <>
       <div className="w-[312px] lg:w-[309px] h-[448px] relative group overflow-hidden">
         <div className="absolute top-4 right-[-40px] flex flex-col gap-5 group-hover:right-4 duration-[.4s] ">
-          <button   className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
+          <button className="p-2 rounded-full bg-white text-2xl active:scale-[1.1] hover:bg-black hover:text-white duration-[.4s]">
             <BsCartPlus />
           </button>
           <button
@@ -29,8 +28,6 @@ const ProductCard = ({
           >
             <TbListDetails />
           </button>
-          
-          
         </div>
         <div className="w-full h-[347px] bg-[#F8FAFC] rounded-2xl overflow-hidden">
           <img src={pImage} alt="product img" />
@@ -47,8 +44,8 @@ const ProductCard = ({
           <p className="text-xs lg:text-sm font-pop font-normal text-primary">
             {pCat}
           </p>
-          <p className="text-xs lg:text-sm font-pop font-normal text-primary ">
-            {pDis}%
+          <p className="text-xs lg:text-sm font-pop font-normal text-primary line-through">
+            {pDis}
           </p>
         </div>
         <div className="flex items-center gap-1">

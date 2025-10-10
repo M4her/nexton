@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router";
 import { LuDot } from "react-icons/lu";
 
 const ProductDetails = () => {
-  // -------------productDetails handler--------
+  // -------------productDetails navigate--------
   const navigate = useNavigate();
 
   const handleDetails = (productID) => {
@@ -56,7 +56,7 @@ const ProductDetails = () => {
       },
     ],
   };
-  // -----------------Api npproduct
+  // -----------------Api product
   const [singleProduct, setSingleProduct] = useState("");
   const [images, setImages] = useState("");
   const paramsData = useParams();
@@ -70,7 +70,7 @@ const ProductDetails = () => {
         (setSingleProduct(res.data), setImages(res.data.images?.[0]));
       })
       .catch((err) => console.log(err));
-    // --------all products
+    // --------all products-------
     axios
       .get("https://dummyjson.com/products")
       .then((res) => {
@@ -274,13 +274,10 @@ const ProductDetails = () => {
           {/* ----------texts------ */}
           <div className="mt-[52px]">
             <h2 className="text-4xl font-semibold font-pop text-primary hidden lg:block">
-              Black Automatic Watch
+              {singleProduct.title}
             </h2>
             <p className="text-sm lg:text-base font-normal font-pop text-[#4B5563] w-[312px] lg:w-[735px] mt-1">
-              The St. Louis Meramec Canoe Company was founded by Alfred Wickett
-              in 1922. Wickett had previously worked for the Old Town Canoe Co
-              from 1900 to 1914. Manufacturing of the classic wooden canoes in
-              Valley Park, Missouri ceased in 1978.
+              {singleProduct.description}
             </p>
             <h2 className="text-xl font-semibold font-pop text-primary lg:hidden">
               About this product
@@ -345,9 +342,11 @@ const ProductDetails = () => {
                     <ProductCard
                       pImage={item.thumbnail}
                       pTittle={item.title}
-                      pPrice={item.price}
+                      pPrice={
+                        item.price - (singleProduct.price * singleProduct.discountPercentage) / 100
+                      }
                       pCat={item.category}
-                      pDis={item.discountPercentage}
+                      pDis={item.price}
                       pRate={item.rating}
                       pStock={item.stock}
                       detailsClick={() => (

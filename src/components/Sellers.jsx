@@ -3,9 +3,17 @@ import CommonHead from "./CommonHead";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import Slider from "react-slick";
+import { useNavigate } from "react-router";
 
 const Sellers = () => {
   const [allProducts, setAllProducts] = useState([]);
+  const navigate = useNavigate();
+
+  const handleDetails = (productID) => {
+    navigate(`/productDetails/${productID}`);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     axios.get("https://dummyjson.com/products")
@@ -72,6 +80,7 @@ const Sellers = () => {
                   pDis={item.discountPercentage}
                   pRate={item.rating}
                   pStock={item.stock}
+                   detailsClick={() => handleDetails(item.id)}
                 />
               </div>
             ))}
