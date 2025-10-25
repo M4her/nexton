@@ -10,6 +10,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import { useNavigate, useParams } from "react-router";
 import { LuDot } from "react-icons/lu";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const ProductDetails = () => {
   // -------------productDetails navigate--------
@@ -87,7 +88,8 @@ const ProductDetails = () => {
     <>
       <section id="productDetails " className="mt-10 px-6 lg:px-0 ">
         <div className="container ">
-          <div className="product_row flex justify-between flex-wrap">
+          <Breadcrumbs pageName={'Product Details'} pageLink={`/productDetails/${paramsData.pId}`} subPageName={singleProduct.title}/>
+          <div className="product_row flex justify-between flex-wrap mt-5">
             {/* -------sekeleton code */}
             {singleProduct ? (
               <div className="product_images flex flex-wrap gap-[11px] lg:gap-6 lg:border-b lg:border-[#E5E7EB] pb-[64px] ">

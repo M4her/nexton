@@ -5,6 +5,9 @@ import LayoutsOne from './layouts/LayoutsOne'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
 import ProductDetails from './pages/ProductDetails'
+import AllProducts from './pages/AllProducts'
+import LimitAPI from './pages/LimitAPI'
+import ReduceMethod from './pages/ReduceMethod'
 
 
 const App = () => {
@@ -13,6 +16,11 @@ const App = () => {
      <Route index  element={<Home/>}/>
      <Route path='/checkout' element={<Checkout/>}/>
      <Route path='/productDetails/:pId' element={<ProductDetails/>}/>
+     <Route path='/all-products/' element={<AllProducts/>}/>
+     <Route path='/limitAPI' element={<LimitAPI/>}/>
+
+     <Route path='/reduceMethod' element={<ReduceMethod/>}/>
+
 
 
 
